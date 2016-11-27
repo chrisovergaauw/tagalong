@@ -9,3 +9,8 @@
   opacity: 0;
   visibility: hidden;
 }
+
+#map {
+            height: 100%;
+}
+

@@ -25,11 +25,27 @@
     <div class=text-center>
         <p>{{ pos }}</p>
     </div>
+    <div id="map" class=text-center></div>
+        <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+</script>
       </div>
     </image-slider>
       <!-- JS -->
     <script src="node_modules/vue/dist/vue.js"></script>
     <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+	<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYP9mvGc7o0X8Y0V1r-8PD-gn1uSn440w&callback=initMap">
     <script src="app.js"></script>
   </body>
 </html>

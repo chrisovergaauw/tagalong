@@ -12,6 +12,7 @@ var vm = new Vue({
     created: function () {
 //        this.startRotation();
         this.getLocation();
+		this.initMap();
 
     },
 
@@ -47,6 +48,17 @@ var vm = new Vue({
             // geolocation is not supported
             console.log('geolocation is not supported!')
           }
-        }
+        },
+        initMap: function() {return null}
+//        //var uluru = {lat: -25.363, lng: 131.044};
+//        var map = new google.maps.Map(document.getElementById('map'), {
+//          zoom: 4,
+//          center: vm.pos
+//        });
+//        var marker = new google.maps.Marker({
+//          position: vm.pos,
+//          map: map
+//        });
+		}
     }
 });
