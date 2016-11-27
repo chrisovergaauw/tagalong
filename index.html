@@ -22,9 +22,11 @@
         <img
              :src="images[Math.abs(currentNumber) % images.length]"
              />
+    <div class=text-center>
+        <p>{{ pos }}</p>
+    </div>
       </div>
     </image-slider>
-
       <!-- JS -->
     <script src="node_modules/vue/dist/vue.js"></script>
     <script src="node_modules/vue-resource/dist/vue-resource.js"></script>

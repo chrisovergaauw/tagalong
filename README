@@ -1,0 +1,11 @@
+### TagAlong! ####
+
+requirements: (selfsigned) certificate + key
+(to test locally or during development: `openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes`)
+
+to run server: 
+1. open up a terminal and type `python server.py`
+2. open up a browser and navigate to 'localhost:8443'
+3. If you're using a selfsigned certificate; just add an exception to bypass the security warnings.
+
+

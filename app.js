@@ -1,13 +1,18 @@
-new Vue({
+var vm = new Vue({
     el: 'image-slider',
-    data: {
-        images: ['assets/images/androidPhone.png','http://i.imgur.com/vYdoAKu.jpg', 'http://i.imgur.com/PUD9HQL.jpg', 'http://i.imgur.com/Lfv18Sb.jpg', 'http://i.imgur.com/tmVJtna.jpg', 'http://i.imgur.com/ZfFAkWZ.jpg'],
-        currentNumber: 0,
-        timer: null
+    data () {
+        return {
+            images: ['assets/images/androidPhone.png','http://i.imgur.com/vYdoAKu.jpg', 'http://i.imgur.com/PUD9HQL.jpg', 'http://i.imgur.com/Lfv18Sb.jpg', 'http://i.imgur.com/tmVJtna.jpg', 'http://i.imgur.com/ZfFAkWZ.jpg'],
+            currentNumber: 0,
+            timer: null,
+            pos: "default",
+        }
     },
 
-    ready: function () {
+    created: function () {
 //        this.startRotation();
+        this.getLocation();
+
     },
 
     methods: {
@@ -22,9 +27,26 @@ new Vue({
 
         next: function() {
             this.currentNumber += 1
+        this.getLocation();
         },
         prev: function() {
             this.currentNumber -= 1
+        },
+        getLocation: function() {
+          if (navigator.geolocation){
+              console.log("geo is available");
+            // geolocation is available
+              navigator.geolocation.getCurrentPosition(function(position) {
+                  pos = {
+                                    lat: position.coords.latitude,
+                                    lng: position.coords.longitude
+                  };
+                  vm.pos = "you're at lat: " + pos.lat + " and lng: " + pos.lng
+              });
+          }else {
+            // geolocation is not supported
+            console.log('geolocation is not supported!')
+          }
         }
     }
 });
